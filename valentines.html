@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <style>
+            @import url('https://fonts.cdnfonts.com/css/love-2');
+
+            body{
+                background-color: lightpink;
+                font-family: 'LOVE', sans-serif;
+                text-align: center;
+                margin-top: 10%;
+            }
+
+            button{
+                padding: 10px 15px;
+                background-color: transparent;
+                color: red;
+                font-size: 20px;
+                font-family: 'LOVE', sans-serif;
+                border: 2px solid red;
+                border-radius: 20px;
+                cursor: pointer;
+            }
+
+            button:hover{
+                background-color: red;
+                color: white;
+            }
+
+            .message{
+                font-size: 20px;
+                margin: 2% 0%;
+            }
+
+            .more-info-button{
+                display: none;
+                margin-bottom: 2%;
+            }
+
+            .event-table{
+                display: none;
+            }
+
+            .table-wrapper{
+                display: flex;
+                justify-content: center;
+            }
+
+            td, th{
+                padding: 5px 15px;
+            }
+
+            .surprise-message{
+                display: none;
+            }
+
+            .message-link{
+                text-decoration: none;
+            }
+        </style>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Valentines</title>
+        <link href="https://fonts.cdnfonts.com/css/love-2" rel="stylesheet">
+    </head>
+
+    <body>
+        <h1><span style="color: red;">&#10084;</span>Will you be my valentine?<span style="color: red;">&#10084;</span></h1>
+        <button type="button">Yes</button>
+        <button type="button">No</button>
+        <div class="message js-message"></div>
+
+        <button class="more-info-button js-more-info-button">More info</button>
+
+        <div class="event-table js-event-table">
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Activity</th>
+                                <th>Address</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>11.15am</td>
+                            <td>Meet up at JE mrt platform</td>
+                            <td>JE</td>
+                        </tr>
+                        <tr>
+                            <td>12.15pm</td>
+                            <td>Lunch</td>
+                            <td>Canopy HortPark @ #01-01, 33 Hyderabad Road, HortPark, Singapore 119578</td>
+                        </tr>
+                        <tr>
+                            <td>2.00pm</td>
+                            <td>Pet Cat</td>
+                            <td>ME Cafe #04-12/13, Orchard Gateway, Singapore 238858</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <a href="valentines_message.html" target="_blank" class="message-link"><button class="surprise-message js-surprise-message" type="button">Your Surprise</button></a>
+        
+
+        <script>
+            document.querySelectorAll('button').forEach((button) => {
+                button.addEventListener('click', () => {
+                    if (button.innerHTML === 'Yes')
+                    {
+                        document.querySelector('.js-message').innerHTML = 'Yay! See you tommorow at 11.30am at JE mrt platform.'
+                        document.querySelector('.js-more-info-button').style.display = 'initial';
+                        document.querySelector('.js-more-info-button').addEventListener('click', () => {
+                            document.querySelector('.event-table').style.display = 'initial';
+                            document.querySelector('.js-surprise-message').style.display = 'initial';
+                        });
+                    }
+                    else if (button.innerHTML === 'No')
+                    {
+                        document.querySelector('.js-message').innerHTML = 'Too bad you don have a choice!'
+                        document.querySelector('.js-more-info-button').style.display = 'none';
+                        document.querySelector('.event-table').style.display = 'none';
+                        document.querySelector('.js-surprise-message').style.display = 'none';
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
+
